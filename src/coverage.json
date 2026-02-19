@@ -1,0 +1,81 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-19T06:15:11.449Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-15",
+        "summary": "Investigate and fix the admin login authentication flow to ensure users can successfully authenticate as admin using Internet Identity when clicking the \"Admin Login\" button",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/layout/AppShell.tsx",
+          "frontend/src/hooks/useInternetIdentity.ts",
+          "frontend/src/components/admin/AdminGuard.tsx",
+          "frontend/src/hooks/useActor.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/layout/AppShell.tsx",
+          "frontend/src/components/admin/AdminGuard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Verify that the backend getCallerUserRole() method correctly returns admin role for authenticated principals who have been granted admin access",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Ensure the frontend AdminGuard component properly checks admin status after Internet Identity login and displays appropriate error messages if admin verification fails",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/admin/AdminGuard.tsx",
+          "frontend/src/hooks/useAdminOnboarding.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/admin/AdminGuard.tsx",
+          "frontend/src/hooks/useAdminOnboarding.ts"
+        ]
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Add console logging to the admin authentication flow (both frontend and backend) to help diagnose where the login process is failing",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useInternetIdentity.ts",
+          "frontend/src/components/admin/AdminGuard.tsx",
+          "frontend/src/hooks/useActor.ts",
+          "frontend/src/components/layout/AppShell.tsx",
+          "frontend/src/hooks/useAdminOnboarding.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/admin/AdminGuard.tsx",
+          "frontend/src/components/layout/AppShell.tsx",
+          "frontend/src/hooks/useAdminOnboarding.ts"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/admin/AdminGuard.tsx",
+    "frontend/src/components/layout/AppShell.tsx",
+    "frontend/src/hooks/useAdminOnboarding.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

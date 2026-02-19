@@ -1,0 +1,16 @@
+{
+  "frontend/src/components/storefront/ProductDetailPage.tsx": "Product detail page component that displays a single product with image gallery, description, quantity selector, and add-to-cart functionality. Fixed import to use useProduct from useProducts.ts instead of non-existent useProduct.ts.",
+  "frontend/src/index.css": "Global styles with OKLCH color system using warm rose/amber tones suitable for women's apparel and jewelry, with complete light and dark mode support.",
+  "frontend/src/components/checkout/CheckoutPage.tsx": "Checkout page component that displays shipping information, order summary, and handles order creation and Stripe payment redirect. Updated to import useCreateOrder from useQueries.ts.",
+  "frontend/src/components/checkout/OrderConfirmationPage.tsx": "Order confirmation page that displays success message and order details after successful payment. Updated to import useGetOrder from useQueries.ts.",
+  "frontend/src/components/orders/MyOrdersPage.tsx": "Customer orders list page showing all orders for the logged-in user with status badges and navigation to order details. Updated to import useGetMyOrders from useQueries.ts.",
+  "frontend/src/components/orders/OrderDetailPage.tsx": "Customer order detail page displaying full order information including items, customer details, and payment status. Updated to import useGetOrder from useQueries.ts.",
+  "frontend/src/components/admin/AdminOrderDetailPage.tsx": "Admin order detail page with customer information and full order details for administrative review. Updated to import useGetOrder from useQueries.ts.",
+  "frontend/index.html": "HTML entry point with updated document title to \"Neelamaa\"",
+  "frontend/src/components/layout/AppShell.tsx": "Main app shell component with logging for admin button clicks, authentication status, and navigation events to help diagnose admin login flow.",
+  "frontend/src/components/storefront/HomePage.tsx": "Home page component with hero banner, category cards, and featured products; updated hero banner alt text to reference \"Neelamaa\"",
+  "frontend/src/hooks/useAdminOnboarding.ts": "Admin onboarding mutation hook with detailed logging for admin claim attempts, principal IDs, success/failure states, and user-friendly error message parsing.",
+  "frontend/src/components/admin/AdminGuard.tsx": "Admin access guard component with extensive logging for authentication checks, admin role verification, component lifecycle, and claim admin functionality.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Internet Identity authentication hook with comprehensive console logging throughout the authentication flow including login initiation, identity retrieval, delegation validation, status changes, and error handling.",
+  "frontend/src/hooks/useActor.ts": "Actor initialization hook with detailed logging for actor creation, authentication status, principal IDs, access control initialization, and query invalidation events."
+}

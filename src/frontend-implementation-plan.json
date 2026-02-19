@@ -1,0 +1,97 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix admin login authentication issue",
+  "requirements": [
+    {
+      "id": "REQ-15",
+      "summary": "Fix the admin login authentication flow to ensure users can successfully authenticate as admin using Internet Identity",
+      "acceptanceCriteria": [
+        "Users can click the \"Admin Login\" button and complete Internet Identity authentication",
+        "After authentication, users with admin privileges can access the admin dashboard at /admin",
+        "The AdminGuard component correctly verifies admin status after login",
+        "Error messages are displayed if authentication or admin verification fails"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/AppShell.tsx",
+          "operation": "modify",
+          "description": "Review and enhance the admin login button to ensure it properly initiates Internet Identity authentication flow and handles authentication state transitions. Add console logging to track when admin login is clicked, authentication status, and any errors during the login process. Ensure the button is visible and functional for both authenticated and unauthenticated users."
+        },
+        {
+          "path": "frontend/src/hooks/useInternetIdentity.ts",
+          "operation": "modify",
+          "description": "Add comprehensive console logging to the Internet Identity authentication flow to track login attempts, identity retrieval, delegation validation, and any errors. Log the authentication status changes and principal IDs when available. Ensure error messages are descriptive and help identify where the authentication process fails."
+        },
+        {
+          "path": "frontend/src/components/admin/AdminGuard.tsx",
+          "operation": "modify",
+          "description": "Add detailed console logging throughout the admin verification flow including authentication check, admin role verification via getCallerUserRole(), and the result of admin status checks. Log the current user's principal ID and role when available. Ensure error messages clearly differentiate between authentication failures and authorization failures (user is authenticated but not an admin). Verify that loading states are properly shown while checking authentication and admin status."
+        },
+        {
+          "path": "frontend/src/hooks/useActor.ts",
+          "operation": "modify",
+          "description": "Add console logging when the actor is created and when identity changes occur. Log any errors during actor initialization or when calling backend methods. This will help identify if the issue is with actor creation or backend communication."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Ensure the frontend AdminGuard component properly checks admin status after Internet Identity login and displays appropriate error messages",
+      "acceptanceCriteria": [
+        "AdminGuard checks authentication status before verifying admin role",
+        "AdminGuard displays clear error messages when a user is authenticated but not an admin",
+        "The \"Make me admin\" button functionality works correctly for first-time admin setup",
+        "Loading states are shown while checking authentication and admin status"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/admin/AdminGuard.tsx",
+          "operation": "modify",
+          "description": "Review and enhance the admin verification logic to ensure it properly checks authentication status before attempting to verify admin role. Improve error handling to display clear, user-friendly error messages that differentiate between: (1) user not authenticated, (2) user authenticated but not an admin, and (3) backend communication errors. Ensure the \"Make me admin\" button is only shown when appropriate (first admin scenario) and properly wired to the useAdminOnboarding hook. Verify that loading states are displayed during both authentication checks and admin role verification."
+        },
+        {
+          "path": "frontend/src/hooks/useAdminOnboarding.ts",
+          "operation": "modify",
+          "description": "Add console logging to track when the admin onboarding mutation is called, the result of assignCallerUserRole, and any errors during the process. Log the principal ID attempting to claim admin privileges. Ensure error messages from the backend (e.g., existing admins, permission issues) are properly surfaced to the UI."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Add console logging to the frontend admin authentication flow to help diagnose where the login process is failing",
+      "acceptanceCriteria": [
+        "Frontend logs show Internet Identity authentication status",
+        "Frontend logs show the result of admin role checks",
+        "Logs include principal IDs to help identify authentication issues"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useInternetIdentity.ts",
+          "operation": "modify",
+          "description": "Add comprehensive console.log statements throughout the authentication flow: (1) when login() is called, (2) when AuthClient is created, (3) when identity is retrieved, (4) when delegation is validated, (5) when loginStatus changes, (6) when clear() is called, and (7) when any errors occur. Include principal IDs in logs when identity is available. Use descriptive log messages like 'II Auth: Login initiated', 'II Auth: Identity retrieved', 'II Auth: Principal ID = [principal]', etc."
+        },
+        {
+          "path": "frontend/src/components/admin/AdminGuard.tsx",
+          "operation": "modify",
+          "description": "Add console.log statements at key decision points: (1) when AdminGuard component mounts, (2) when checking if user is authenticated, (3) before calling getCallerUserRole(), (4) when admin role check result is received, (5) when displaying error states, and (6) when rendering children (admin content). Include the current authentication status, principal ID if available, and the result of the admin check. Use messages like 'AdminGuard: Checking authentication', 'AdminGuard: User authenticated, checking admin role', 'AdminGuard: Admin check result = [role]', etc."
+        },
+        {
+          "path": "frontend/src/hooks/useActor.ts",
+          "operation": "modify",
+          "description": "Add console.log statements when: (1) actor query is enabled/disabled, (2) actor is being created, (3) identity changes are detected, (4) actor creation succeeds, (5) actor creation fails, and (6) when queries are invalidated due to identity changes. Include identity principal when available. Use messages like 'useActor: Creating actor with identity [principal]', 'useActor: Actor created successfully', 'useActor: Identity changed, invalidating queries', etc."
+        },
+        {
+          "path": "frontend/src/components/layout/AppShell.tsx",
+          "operation": "modify",
+          "description": "Add console.log statements when the admin login button is clicked, when navigation to /admin is attempted, and when checking if the current route is an admin route. Include authentication status and current route in logs. Use messages like 'AppShell: Admin login button clicked', 'AppShell: Navigating to admin route', 'AppShell: Current auth status = [status]', etc."
+        },
+        {
+          "path": "frontend/src/hooks/useAdminOnboarding.ts",
+          "operation": "modify",
+          "description": "Add console.log statements when: (1) the mutation is called, (2) assignCallerUserRole is invoked, (3) the mutation succeeds, (4) the mutation fails with an error. Include the principal ID and role being assigned. Use messages like 'useAdminOnboarding: Attempting to claim admin for principal [principal]', 'useAdminOnboarding: Admin claim successful', 'useAdminOnboarding: Admin claim failed - [error]', etc."
+        }
+      ]
+    }
+  ]
+}

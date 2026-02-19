@@ -1,0 +1,212 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 11,
+  "summary": "Mobile e-commerce app for women’s apparel and jewelry with multi-admin management, customer registration via international mobile numbers, ordering, and payments.",
+  "architectural_notes": [
+    "Admin authentication/authorization uses Internet Identity; admin access is determined by checking the signed-in principal against an admin allowlist on the backend (e.g., to access /admin)."
+  ],
+  "known_issues": [
+    "Admin login not working – user unable to authenticate as admin"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-mobile-first-e-commerce-storefront-focused-on-women-s-clothing-and-jewelry-including-home-page-category-browsing-product-listing-pages-product-detail-pages-images-price-description-variants-like-size-color-where-applicable-search-and-a-shopping-cart",
+      "title": "Create a mobile-first e-commerce storefront focused on women’s clothing and jewelry, including: home page, category browsing, product listing pages, product detail pages (images, price, description, variants like size/color where applicable), search, and a shopping cart.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-customer-registration-and-login-using-an-international-mobile-phone-number-country-code-number-as-the-customer-identifier-and-allow-customers-to-maintain-a-basic-profile-name-phone-optional-shipping-address",
+      "title": "Add customer registration and login using an international mobile phone number (country code + number) as the customer identifier, and allow customers to maintain a basic profile (name, phone, optional shipping address).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-ordering-and-checkout-flow-cart-review-shipping-details-collection-order-review-order-submission-and-order-confirmation-with-an-order-id-store-order-status-in-the-backend",
+      "title": "Implement an ordering and checkout flow: cart review, shipping details collection, order review, order submission, and order confirmation with an order ID; store order status in the backend.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-integrate-payment-processing-for-orders-so-customers-can-pay-during-checkout-and-persist-payment-status-e-g-pending-paid-failed-on-the-order",
+      "title": "Integrate payment processing for orders so customers can pay during checkout, and persist payment status (e.g., pending/paid/failed) on the order.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-admin-access-for-3-4-admins-to-log-in-and-view-manage-store-details-including-products-and-orders-via-an-admin-only-dashboard",
+      "title": "Implement admin access for 3–4 admins to log in and view/manage store details, including products and orders, via an admin-only dashboard.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-choose-and-apply-a-coherent-visual-theme-suitable-for-a-women-s-apparel-jewelry-mobile-shop-colors-typography-spacing-and-component-styling-and-enforce-it-consistently-across-all-screens",
+      "title": "Choose and apply a coherent visual theme suitable for a women’s apparel & jewelry mobile shop (colors, typography, spacing, and component styling) and enforce it consistently across all screens.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-brand-static-images-and-render-them-in-the-ui-from-frontend-static-assets-not-via-the-backend",
+      "title": "Add generated brand/static images and render them in the UI from frontend static assets (not via the backend).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-app-s-displayed-name-to-neelamaa-wherever-it-is-shown-in-the-storefront-ui-including-the-html-document-title-and-the-global-header-footer-brand-text",
+      "title": "Update the app’s displayed name to \"Neelamaa\" wherever it is shown in the storefront UI, including the HTML document title and the global header/footer brand text.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-hard-coded-brand-alt-text-to-reflect-the-new-brand-name-neelamaa-for-accessibility-e-g-logo-alt-text-and-home-hero-banner-alt-text-without-changing-image-filenames-or-paths",
+      "title": "Update hard-coded brand alt text to reflect the new brand name \"Neelamaa\" for accessibility (e.g., logo alt text and home hero banner alt text), without changing image filenames or paths.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-expose-a-simple-ui-affordance-for-testing-admin-onboarding-that-lets-a-logged-in-user-trigger-the-new-admin-onboarding-api-and-then-immediately-re-check-admin-status-so-the-user-can-log-in-and-become-admin-without-manual-backend-edits",
+      "title": "Expose a simple UI affordance for testing/admin onboarding that lets a logged-in user trigger the new admin-onboarding API and then immediately re-check admin status (so the user can log in and become admin without manual backend edits).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-visible-clearly-labeled-admin-login-button-to-the-main-app-interface-e-g-in-the-header-or-home-page-that-routes-to-admin-and-triggers-internet-identity-login-if-the-user-is-not-authenticated",
+      "title": "Add a visible, clearly labeled \"Admin Login\" button to the main app interface (e.g., in the header or home page) that routes to /admin and triggers Internet Identity login if the user is not authenticated",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-visible-clearly-labeled-login-or-sign-in-button-for-regular-users-customers-that-triggers-internet-identity-login-and-is-accessible-from-the-main-storefront-interface",
+      "title": "Add a visible, clearly labeled \"Login\" or \"Sign In\" button for regular users (customers) that triggers Internet Identity login and is accessible from the main storefront interface",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-investigate-and-fix-the-admin-login-authentication-flow-to-ensure-users-can-successfully-authenticate-as-admin-using-internet-identity-when-clicking-the-admin-login-button",
+      "title": "Investigate and fix the admin login authentication flow to ensure users can successfully authenticate as admin using Internet Identity when clicking the \"Admin Login\" button",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-frontend-adminguard-component-properly-checks-admin-status-after-internet-identity-login-and-displays-appropriate-error-messages-if-admin-verification-fails",
+      "title": "Ensure the frontend AdminGuard component properly checks admin status after Internet Identity login and displays appropriate error messages if admin verification fails",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-console-logging-to-the-admin-authentication-flow-both-frontend-and-backend-to-help-diagnose-where-the-login-process-is-failing",
+      "title": "Add console logging to the admin authentication flow (both frontend and backend) to help diagnose where the login process is failing",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a mobile e-commerce app focused on women’s clothing and jewelry (product browsing/catalog).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Support 3–4 admin logins to manage and view all store/customer/order details (admin panel/roles).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Enable customer registration/login using mobile number for any country (international phone support/OTP).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement customer ordering/checkout flow.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Integrate payment processing for orders.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement backend data models and APIs to support products, categories, inventory/availability, carts, orders, and user profiles required by the storefront (including persistence in canister stable storage).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add an admin onboarding mechanism to grant a specific Internet Identity principal admin access (e.g., add current user principal to admin allowlist).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add a backend admin-onboarding API that allows the currently authenticated caller (Internet Identity principal) to become an admin in a safe, deterministic way suitable for testing (e.g., allow the first admin to be claimed when no admins exist yet), so the user who says \"make me admin\" can access admin-only APIs like product creation and viewing all orders.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add a visible login button specifically for admins on the app's login or home page.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "When the app is ready, add a visible login button for users (customers) to sign in.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Verify that the backend getCallerUserRole() method correctly returns admin role for authenticated principals who have been granted admin access",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "LunaLuxe Shop",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

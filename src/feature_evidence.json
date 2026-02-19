@@ -1,0 +1,75 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-investigate-and-fix-the-admin-login-authentication-flow-to-ensure-users-can-successfully-authenticate-as-admin-using-internet-identity-when-clicking-the-admin-login-button",
+      "featureTitle": "Investigate and fix the admin login authentication flow to ensure users can successfully authenticate as admin using Internet Identity when clicking the \"Admin Login\" button",
+      "files": [
+        "frontend/src/components/admin/AdminGuard.tsx",
+        "frontend/src/components/layout/AppShell.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-frontend-adminguard-component-properly-checks-admin-status-after-internet-identity-login-and-displays-appropriate-error-messages-if-admin-verification-fails",
+      "featureTitle": "Ensure the frontend AdminGuard component properly checks admin status after Internet Identity login and displays appropriate error messages if admin verification fails",
+      "files": [
+        "frontend/src/components/admin/AdminGuard.tsx",
+        "frontend/src/hooks/useAdminOnboarding.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-console-logging-to-the-admin-authentication-flow-both-frontend-and-backend-to-help-diagnose-where-the-login-process-is-failing",
+      "featureTitle": "Add console logging to the admin authentication flow (both frontend and backend) to help diagnose where the login process is failing",
+      "files": [
+        "frontend/src/components/admin/AdminGuard.tsx",
+        "frontend/src/components/layout/AppShell.tsx",
+        "frontend/src/hooks/useAdminOnboarding.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

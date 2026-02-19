@@ -1,0 +1,88 @@
+{
+  "kind": "build_request",
+  "title": "Fix admin login authentication issue",
+  "projectName": "Neelamaa",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-15",
+      "text": "Investigate and fix the admin login authentication flow to ensure users can successfully authenticate as admin using Internet Identity when clicking the \"Admin Login\" button",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "not able to login as admin"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can click the \"Admin Login\" button and complete Internet Identity authentication",
+        "After authentication, users with admin privileges can access the admin dashboard at /admin",
+        "The AdminGuard component correctly verifies admin status after login",
+        "Error messages are displayed if authentication or admin verification fails"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Verify that the backend getCallerUserRole() method correctly returns admin role for authenticated principals who have been granted admin access",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The getCallerUserRole() method returns the correct role for authenticated callers",
+        "Admin principals are properly stored and retrieved from the backend state",
+        "The method handles unauthenticated calls appropriately"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Ensure the frontend AdminGuard component properly checks admin status after Internet Identity login and displays appropriate error messages if admin verification fails",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ]
+      },
+      "acceptanceCriteria": [
+        "AdminGuard checks authentication status before verifying admin role",
+        "AdminGuard displays clear error messages when a user is authenticated but not an admin",
+        "The \"Make me admin\" button functionality works correctly for first-time admin setup",
+        "Loading states are shown while checking authentication and admin status"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Add console logging to the admin authentication flow (both frontend and backend) to help diagnose where the login process is failing",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Frontend logs show Internet Identity authentication status",
+        "Frontend logs show the result of admin role checks",
+        "Backend logs show when getCallerUserRole() is called and what it returns",
+        "Logs include principal IDs to help identify authentication issues"
+      ]
+    }
+  ],
+  "constraints": [
+    "Maintain the existing Internet Identity authentication implementation in frontend/src/hooks/useInternetIdentity.ts",
+    "Do not modify the core authentication flow in frontend/src/main.tsx",
+    "Preserve the existing admin role-based access control logic in backend/main.mo"
+  ],
+  "nonGoals": [
+    "Changing the authentication provider from Internet Identity to another service",
+    "Modifying the UI design or layout of the admin login button",
+    "Adding new admin features beyond fixing the login issue"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
